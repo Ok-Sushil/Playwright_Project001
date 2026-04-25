@@ -25,3 +25,13 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+
+      - name: Slack Notification
+      if: always()
+      run: |
+        curl -X POST -H 'Content-type: application/json' \
+        --data '{"text":"✅ Playwright Test Execution Completed 🚀"}' \
+        ${{ secrets.SLACK_WEBHOOK_URL }}
+
+
+
