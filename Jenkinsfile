@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    environment {
+        SLACK_WEBHOOK_URL = credentials('slack-webhook')
+    }
 
     stages {
 
@@ -38,7 +42,7 @@ pipeline {
                 --data '{
                     "text":"✅ Jenkins Playwright Execution Completed 🚀\\n🔗 Build Details: ${BUILD_URL}"
                 }' \
-                SLACK_WEBHOOK_URL
+                ${SLACK_WEBHOOK_URL}
                 """
             }
         }
