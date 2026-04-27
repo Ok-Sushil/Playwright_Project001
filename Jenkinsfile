@@ -5,8 +5,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main',
-                git 'https://github.com/Ok-Sushil/Playwright_Project001.git'
+                git branch: 'main', url: 'https://github.com/Ok-Sushil/Playwright_Project001.git'
             }
         }
 
