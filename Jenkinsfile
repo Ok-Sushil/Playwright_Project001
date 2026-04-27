@@ -1,4 +1,3 @@
-```groovy id="clean-working-jenkinsfile"
 pipeline {
     agent any
 
@@ -37,7 +36,7 @@ pipeline {
                 sh """
                 curl -X POST -H 'Content-type: application/json' \
                 --data '{
-                    "text":"✅ Jenkins Playwright Execution Completed 🚀"
+                    "text":"✅ Jenkins Playwright Execution Completed 🚀\\n🔗 Build Details: ${BUILD_URL}"
                 }' \
                 SLACK_WEBHOOK_URL
                 """
@@ -46,4 +45,3 @@ pipeline {
 
     }
 }
-```
