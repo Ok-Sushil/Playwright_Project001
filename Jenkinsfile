@@ -11,13 +11,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t playwright-framework .'
+                sh 'docker build -t playwright-framework .'
             }
         }
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'docker run playwright-framework'
+                sh 'docker run playwright-framework'
             }
         }
 
